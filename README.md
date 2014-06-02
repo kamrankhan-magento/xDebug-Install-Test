@@ -5,8 +5,16 @@ Install XDebug and troubleshoot why it is not working
 ## Where to start
 
 1. Start with http://xdebug.org/wizard.php
-2. go to checks/first_check.php
-3. check files as they are needed
+2. try to enable most of xdebug.settings , turn off later if they are not needed
+   
+   like
+   xdebug.profiler_enable = 1
+   xdebug.profiler_enable_trigger = 1
+   xdebug.extended_info = 1
+   xdebug.remote_enable = on
+   xdebug.show_local_vars = 1
+3. go to checks/first_check.php
+4. check files as they are needed
 
 A common line start can be
 ```
