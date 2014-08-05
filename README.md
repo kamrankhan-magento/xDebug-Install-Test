@@ -26,6 +26,12 @@ php -d xdebug.profiler_enable=1 -d xdebug.profiler_output_dir=/xampp/php/tmp
 C:\xampp\php\php.exe -dxdebug.remote_enable=1 -dxdebug.remote_host=127.0.0.1 -dxdebug.remote_port=9000 -dxdebug.remote_mode=req C:\xampp\htdocs\xdebug\exp.php
 ```
 
+on linux command prompt might have to use soemthing like
+
+```
+XDEBUG_CONFIG="idekey=netbeans-xdebug" php -dxdebug.remote_host=`echo $SSH_CLIENT | cut -d "=" -f 2 | awk '{print $1}'` shell/scirpt_namet.php --parameter-name
+```
+
 ## License
 
 Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
