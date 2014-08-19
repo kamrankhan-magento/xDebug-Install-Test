@@ -31,6 +31,15 @@ on linux command prompt might have to use soemthing like
 ```
 XDEBUG_CONFIG="idekey=netbeans-xdebug" php -dxdebug.remote_host=`echo $SSH_CLIENT | cut -d "=" -f 2 | awk '{print $1}'` shell/scirpt_namet.php --parameter-name
 ```
+can create a wraper shell script like
+```
+export PHP_IDE_CONFIG="serverName=localdomainname"
+export XDEBUG_CONFIG="remote_connect_back=0 idekey=netbeans-xdebug remote_host=ipaddress"
+php "$@"
+```
+
+In case of vagrant you need to specifiy in phpstorm the deployment server where mapping for deployment path on server is .
+
 
 ## License
 
