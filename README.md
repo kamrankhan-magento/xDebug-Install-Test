@@ -40,7 +40,20 @@ php "$@"
 
 In case of vagrant you need to specifiy in phpstorm the deployment server where mapping for deployment path on server is .
 
+in vagrant phpinfo make sure that you have `xdebug_remote.enabled = 1`
 
+Other settings will look like this
+
+
+```
+sudo vi /etc/php5/fpm/conf.d/20-xdebug.ini
+xdebug.remote_enable=1
+xdebug.remote_host=192.168.131.1
+```
+`xdebug.remote_host` should be same configuration as `$_SERVER["REMOTE_ADDR"]`
+
+For PHPStorm and browser integration look at `IDE Key` in phpinfo `xdebug` section.
+In PHPStorm check your Servers in settings.
 ## License
 
 Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
