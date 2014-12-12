@@ -26,6 +26,7 @@ php -d xdebug.profiler_enable=1 -d xdebug.profiler_output_dir=/xampp/php/tmp
 C:\xampp\php\php.exe -dxdebug.remote_enable=1 -dxdebug.remote_host=127.0.0.1 -dxdebug.remote_port=9000 -dxdebug.remote_mode=req C:\xampp\htdocs\xdebug\exp.php
 ```
 
+## Command line
 on linux command prompt might have to use soemthing like
 
 ```
@@ -37,6 +38,7 @@ export PHP_IDE_CONFIG="serverName=localdomainname"
 export XDEBUG_CONFIG="remote_connect_back=0 idekey=netbeans-xdebug remote_host=ipaddress"
 php "$@"
 ```
+### Vagrant
 
 In case of vagrant you need to specifiy in phpstorm the deployment server where mapping for deployment path on server is .
 
@@ -54,6 +56,21 @@ xdebug.remote_host=192.168.131.1
 
 For PHPStorm and browser integration look at `IDE Key` in phpinfo `xdebug` section.
 In PHPStorm check your Servers in settings.
+
+### Vagrant command line 
+
+Approahc is similar but you need to specify right ip address. 
+If in you `Vagrantfile` you have `web.vm.network "private_network", ip: "192.163.31.10"`
+your xdebug remote path will be like `192.163.31.1`
+If unsure look at the contents of your `/etc/php5/fpm/conf.d/20-xdebug.ini`.
+Config option `xdebug.remote_host` will tell the right ip address for the script
+I tried `grep -r "xdebug" /etc/php5/fpm/` but it did not work for me
+```
+export PHP_IDE_CONFIG="serverName=dev.actualwebsite.com"
+export XDEBUG_CONFIG="remote_connect_back=0 idekey=netbeans-xdebug remote_host=ipaddress"
+php "$@"
+```
+
 ## License
 
 Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
