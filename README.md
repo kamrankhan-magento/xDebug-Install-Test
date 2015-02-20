@@ -64,7 +64,7 @@ If in you `Vagrantfile` you have `web.vm.network "private_network", ip: "192.163
 your xdebug remote path will be like `192.163.31.1`
 If unsure look at the contents of your `/etc/php5/fpm/conf.d/20-xdebug.ini`.
 Config option `xdebug.remote_host` will tell the right ip address for the script
-I tried `grep -r "xdebug" /etc/php5/fpm/` but it did not work for me
+I tried `grep -r "xdebug" /etc/php5/` but it did not work for me
 ```
 export PHP_IDE_CONFIG="serverName=dev.actualwebsite.com"
 export XDEBUG_CONFIG="remote_connect_back=0 idekey=netbeans-xdebug remote_host=ipaddress"
