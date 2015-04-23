@@ -41,6 +41,8 @@ php "$@"
 ```
 and then you can call this script like
 * `xdebug_cli local.website.com  script_file.php arguments`
+
+
 ### Vagrant
 
 In case of vagrant you need to specifiy in phpstorm the deployment server where mapping for deployment path on server is .
