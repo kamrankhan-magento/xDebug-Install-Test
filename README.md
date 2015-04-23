@@ -34,10 +34,13 @@ XDEBUG_CONFIG="idekey=netbeans-xdebug" php -dxdebug.remote_host=`echo $SSH_CLIEN
 ```
 can create a wraper shell script like
 ```
-export PHP_IDE_CONFIG="serverName=localdomainname"
-export XDEBUG_CONFIG="remote_connect_back=0 idekey=netbeans-xdebug remote_host=ipaddress"
+export PHP_IDE_CONFIG="serverName=$1"
+export XDEBUG_CONFIG="remote_connect_back=0 idekey=netbeans-xdebug remote_host=127.0.0.1"
+shift
 php "$@"
 ```
+and then you can call this script like
+`xdebug_cli local.website.com  script_file.php arguments`
 ### Vagrant
 
 In case of vagrant you need to specifiy in phpstorm the deployment server where mapping for deployment path on server is .
