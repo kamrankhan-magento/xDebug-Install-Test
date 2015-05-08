@@ -76,6 +76,17 @@ export XDEBUG_CONFIG="remote_connect_back=0 idekey=netbeans-xdebug remote_host=i
 php "$@"
 ```
 
+### phpunit
+
+* check your local version `phpunit --version`
+* download that version from https://github.com/sebastianbergmann/phpunit/releases
+* Extract it to your local path which is gitignored, or which you can gitignore now.
+* go to that directory and run `composer install`
+* Changge PHP Server Mapping (won't be needed)
+* PHPStorm > Setting > Languages & FrameWorks > PHP > Servers
+* run unit tests like `xdebug_cli local.domain.com zain_custom/external/phpunit-4.6.6/phpunit --group groupname`
+
+
 ## License
 
 Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
