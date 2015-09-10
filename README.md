@@ -9,10 +9,9 @@ Install XDebug and troubleshoot why it is not working
    
    like
    xdebug.profiler_enable = 1
-   xdebug.profiler_enable_trigger = 1
-   xdebug.extended_info = 1
-   xdebug.remote_enable = on
-   xdebug.show_local_vars = 1
+   xdebug.remote_host=localhost
+   #If using vagrant and host ip is like 192.168.131.??
+   #xdebug.remote_host=192.168.131.1
 3. go to checks/first_check.php
 4. check files as they are needed
 
@@ -76,6 +75,10 @@ export XDEBUG_CONFIG="remote_connect_back=0 idekey=netbeans-xdebug remote_host=i
 php "$@"
 ```
 
+Make sure host machine does not has a firewall rule stopping the xdebug connection.
+If your vagrant ip is like 192.168.131.?? In vagrant try
+* telnet 192.168.131.1 9000
+* To quick telnet use Ctr ] and then enter quit
 ### phpunit
 
 * check your local version `phpunit --version`
