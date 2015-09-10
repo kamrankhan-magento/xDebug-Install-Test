@@ -58,6 +58,14 @@ xdebug.remote_host=192.168.131.1
 For PHPStorm and browser integration look at `IDE Key` in phpinfo `xdebug` section.
 In PHPStorm check your Servers in settings.
 
+### Vagrant xdebug connection test
+Make sure host machine does not has a firewall rule stopping the xdebug connection.
+
+If your vagrant ip is like 192.168.131.?? In vagrant try
+* telnet 192.168.131.1 9000
+* To quick telnet use Ctr ] and then enter quit
+* If issues on HOST machine do `sudo service iptables stop`
+
 ### Vagrant command line 
 
 Approahc is similar but you need to specify right ip address. 
@@ -72,10 +80,6 @@ export XDEBUG_CONFIG="remote_connect_back=0 idekey=netbeans-xdebug remote_host=i
 php "$@"
 ```
 
-Make sure host machine does not has a firewall rule stopping the xdebug connection.
-If your vagrant ip is like 192.168.131.?? In vagrant try
-* telnet 192.168.131.1 9000
-* To quick telnet use Ctr ] and then enter quit
 ### phpunit
 
 * check your local version `phpunit --version`
