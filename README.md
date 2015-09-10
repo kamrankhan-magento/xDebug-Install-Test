@@ -4,21 +4,18 @@ Install XDebug and troubleshoot why it is not working
 
 ## Where to start
 
-1. Start with http://xdebug.org/wizard.php
-2. try to enable most of xdebug.settings , turn off later if they are not needed
-   
+*  Start with http://xdebug.org/wizard.php
+*  try to enable most of xdebug.settings , turn off later if they are not needed
    like
-   xdebug.profiler_enable = 1
-   xdebug.remote_host=localhost
-   #If using vagrant and host ip is like 192.168.131.??
-   #xdebug.remote_host=192.168.131.1
-3. go to checks/first_check.php
-4. check files as they are needed
+** `xdebug.profiler_enable = 1`
+** `xdebug.remote_host=localhost`
+** `#If using vagrant and host ip is like 192.168.131.??`
+** `#xdebug.remote_host=192.168.131.1`
+* go to checks/first_check.php
+* check files as they are needed
 
 A common line start can be
-```
-php -d xdebug.profiler_enable=1 -d xdebug.profiler_output_dir=/xampp/php/tmp
- ```
+`php -d xdebug.profiler_enable=1 -d xdebug.profiler_output_dir=/xampp/php/tmp`
  on windows might try something like
 
 ```
