@@ -77,7 +77,7 @@ I tried `grep -r "xdebug" /etc/php5/` but it did not work for me
 ```
 export PHP_IDE_CONFIG="serverName=dev.actualwebsite.com"
 export XDEBUG_CONFIG="remote_connect_back=0 idekey=netbeans-xdebug remote_host=ip -> $_SERVER["REMOTE_ADDR"]"
-php "$@"
+php -dxdebug.remote_enable=1  "$@"
 ```
 
 ### phpunit
