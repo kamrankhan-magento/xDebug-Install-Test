@@ -96,7 +96,9 @@ php -dxdebug.remote_enable=1  "$@"
 
 ### shared server
 you can use `.htaccess` something like
+```
 php_flag  xdebug.remote_autostart on
+```
 
 or inside your visual host 
 ```
