@@ -38,6 +38,9 @@ php "$@"
 and then you can call this script like
 * `xdebug_cli local.website.com  script_file.php arguments`
 
+On local host if normal xdebug is already configured using web server
+` php -dxdebug.remote_enable=1 script.php`
+
 
 ### Vagrant
 
@@ -86,7 +89,7 @@ php -dxdebug.remote_enable=1  "$@"
 * download that version from https://github.com/sebastianbergmann/phpunit/releases
 * Extract it to your local path which is gitignored, or which you can gitignore now.
 * go to that directory and run `composer install`
-* Changge PHP Server Mapping (won't be needed)
+* Change PHP Server Mapping (won't be needed)
 * PHPStorm > Setting > Languages & FrameWorks > PHP > Servers
 * run unit tests like `xdebug_cli local.domain.com zain_custom/external/phpunit-4.6.6/phpunit --group groupname`
 
