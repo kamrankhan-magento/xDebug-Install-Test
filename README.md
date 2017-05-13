@@ -39,7 +39,7 @@ and then you can call this script like
 * `xdebug_cli local.website.com  script_file.php arguments`
 
 On local host if normal xdebug is already configured using web server
-` php -dxdebug.remote_enable=1 script.php`
+* `php -dxdebug.remote_enable=1 script.php`
 
 
 ### Vagrant
