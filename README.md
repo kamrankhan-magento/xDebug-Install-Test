@@ -5,41 +5,52 @@ Install XDebug and troubleshoot why it is not working
 ## Where to start
 
 *  Start with http://xdebug.org/wizard.php
-*  try to enable most of xdebug.settings , turn off later if they are not needed
-   like
- * `xdebug.profiler_enable = 1`
- * `xdebug.remote_host=localhost`
- * `#If using vagrant and host ip is like 192.168.131.??`
- * `#xdebug.remote_host=192.168.131.1`
-* go to checks/first_check.php
-* check files as they are needed
 
-A common line start can be
-`php -d xdebug.profiler_enable=1 -d xdebug.profiler_output_dir=/xampp/php/tmp`
- on windows might try something like
+## Usual Configs
+    
+    xdebug.remote_host=localhost
+    #if vagrant and your machine is like 192.168.131.45
+    #xdebug.remote_host=192.168.131.1
+    #as first ip in vagrant is ip of host
 
-```
-C:\xampp\php\php.exe -dxdebug.remote_enable=1 -dxdebug.remote_host=127.0.0.1 -dxdebug.remote_port=9000 -dxdebug.remote_mode=req C:\xampp\htdocs\xdebug\exp.php
-```
+## sample.php
 
-## Command line
-on linux command prompt might have to use soemthing like
+    <?php
+        if (function_exists('xdebug_break')) {
+            xdebug_break();
+            die('break after xdebug');
+        }
+        else {
+            die('xdebug does not exist');
+        }
 
-```
-XDEBUG_CONFIG="idekey=netbeans-xdebug" php -dxdebug.remote_host=`echo $SSH_CLIENT | cut -d "=" -f 2 | awk '{print $1}'` shell/scirpt_namet.php --parameter-name
-```
-can create a wraper shell script like
-```
-export PHP_IDE_CONFIG="serverName=$1"
-export XDEBUG_CONFIG="remote_connect_back=0 idekey=netbeans-xdebug remote_host=127.0.0.1"
-shift
-php "$@"
-```
+
+## quick xdebug check
+    
+    php -dxdebug.remote_enable=1 -dxdebug.remote_autostart=1 sample.php
+
+# Windows
+
+    C:\xampp\php\php.exe -dxdebug.remote_enable=1 -dxdebug.remote_host=127.0.0.1 -dxdebug.remote_port=9000 -dxdebug.remote_mode=req sample.php
+
+
+## Shell tools
+
+    #I think current ip address detection and may be vagrant host ip detection included, not sure
+    
+    XDEBUG_CONFIG="idekey=netbeans-xdebug" php -dxdebug.remote_host=`echo $SSH_CLIENT | cut -d "=" -f 2 | awk '{print $1}'` sample.php --parameter-name
+
+### Vagrant wraper script
+can create a wrapepr shell script like, where hostname is passed as parameter
+
+    export PHP_IDE_CONFIG="serverName=$1"
+    export XDEBUG_CONFIG="remote_connect_back=0 idekey=netbeans-xdebug remote_host=127.0.0.1"
+    shift
+    php "$@"
+
 and then you can call this script like
-* `xdebug_cli local.website.com  script_file.php arguments`
 
-On local host if normal xdebug is already configured using web server
-* `php -dxdebug.remote_enable=1 -dxdebug.remote_autostart=1 script.php`
+    xdebug_cli local.website.com  script_file.php arguments
 
 
 ### Vagrant
