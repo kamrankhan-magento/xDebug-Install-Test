@@ -121,3 +121,8 @@ or inside your visual host
      php_value upload_max_filesize 5M
 
 ...
+
+### Misc
+
+    # PHPStorm remote call plugin https://plugins.jetbrains.com/plugin/6027-remote-call
+    xdebug.file_link_format = "http://localhost:8091/?message=%f:%l"
