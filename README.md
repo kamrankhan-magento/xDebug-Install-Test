@@ -121,6 +121,13 @@ or inside your visual host
      php_value upload_max_filesize 5M
 
 ...
+```
+#### PHPSTORM issues
+* if listening to xdebug stops php process but does not break anywhere issue with xdebug version (use older)
+** look at log file `Helper` > `Show Log in Finder` (for mac) and look at logs
+** you might see something like Argument for @NotNull parameter 'remoteFileUrl' of com/jetbrains/php/debug/xdebug/debugger/XdebugDriver.onBreak must not be null 
+** or upgrade phpstorm
+
 
 ### Misc
 
