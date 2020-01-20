@@ -1,0 +1,44 @@
+PHPStorm
+
+PHPStorm listen button is for xdebug only not for javascript
+It works based on bug symbol
+Please note that doc is to debug node (backend) not frontend (react etc)
+
+Run / Edit Configurations...
+
+Just go to packages.json
+next to each npm command it will show play button (on left)
+right click it and select debug
+make sure debug point is in node backend code, not frontend code like react
+
+And that's all
+if any issues pkill node
+
+Code Run / Debug / Debug configuration
+Working directory /Volumes/sensetive/js/merchant-integration-api
+script path src/local_snippets/utils/debug.js
+
+make sure phpstorm has picked-up correct nodejs version/executable etc
+break points are either from IDE
+or from keyword debugger;
+
+
+
+main project debug has several approaches
+one is to use ts-node
+you need to add files parameter
+ts-node --files src/index.ts
+
+alternative  add /// <reference path="global.d.ts" />
+in index.ts
+and other places where some type file needs to be loaded, --files is much better
+
+but this won't be useful in debugging inside phpstorm, so need to add environment variable
+TS_NODE_FILES=true
+
+phpstorm requires extra params to debug typescript using ts-node
+https://www.jetbrains.com/help/phpstorm/running-and-debugging-typescript.html
+
+but if you have included ts-node locally you will need to pass full path in param
+like --require /Users/zain/.nvm/versions/node/v10.18.0/lib/node_modules/ts-node/register
+did not work with ~/.nvm/....
